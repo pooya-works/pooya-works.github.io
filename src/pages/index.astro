@@ -15,7 +15,7 @@ const latestNote = notes.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
     <p class="hero-copy">
       Tiny tools, experiments, and useful software made with curiosity.
     </p>
-    <a class="text-link" href="#projects">See what is building</a>
+    <a class="text-link" href="#projects">Meet the first build</a>
   </section>
 
   <section class="section-band" id="projects" aria-labelledby="projects-title">
@@ -50,7 +50,7 @@ const latestNote = notes.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
     </div>
     <div class="note-preview">
       <p>Build notes: what I made, what broke, and what I learned.</p>
-      {latestNote && <a class="text-link" href={`/notes/${latestNote.slug}/`}>{latestNote.data.day} starts with {latestNote.data.project}</a>}
+      {latestNote && <a class="text-link" href={`/notes/${latestNote.slug}/`}>Read {latestNote.data.day}: {latestNote.data.project}</a>}
     </div>
   </section>
 
