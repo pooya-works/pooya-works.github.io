@@ -27,26 +27,57 @@ const latestNote = notes.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
       featuredProject && (
         <article class="project-row">
           <div class="project-number">{featuredProject.data.number}</div>
-          <div>
-            <p class="status">{featuredProject.data.status}</p>
-            <h3>{featuredProject.data.title}</h3>
-            <p>{featuredProject.data.description}</p>
-            <div class="meta-line">
-              {featuredProject.data.version && (
-                <span>
-                  {featuredProject.data.version}
-                  {featuredProject.data.versionDate && ` (${featuredProject.data.versionDate})`}
-                </span>
-              )}
-              {featuredProject.data.nextVersion && <span>{featuredProject.data.nextVersion}</span>}
-              <span>{featuredProject.data.category}</span>
-              {featuredProject.data.platform && <span>{featuredProject.data.platform}</span>}
-              {featuredProject.data.openSource && <span>Open Source</span>}
+          <div class="project-spotlight">
+            <div>
+              <p class="status">{featuredProject.data.status}</p>
+              <h3>{featuredProject.data.title}</h3>
+              <p>{featuredProject.data.description}</p>
+              <div class="meta-line">
+                {featuredProject.data.version && (
+                  <span>
+                    {featuredProject.data.version}
+                    {featuredProject.data.versionDate && ` (${featuredProject.data.versionDate})`}
+                  </span>
+                )}
+                {featuredProject.data.nextVersion && <span>{featuredProject.data.nextVersion}</span>}
+                <span>{featuredProject.data.category}</span>
+                {featuredProject.data.platform && <span>{featuredProject.data.platform}</span>}
+                {featuredProject.data.openSource && <span>Open Source</span>}
+              </div>
+              <div class="link-row">
+                {featuredProject.data.github && <a class="text-link" href={featuredProject.data.github}>GitHub repository</a>}
+                {latestNote && <a class="text-link" href={`/notes/${latestNote.slug}/`}>Build note</a>}
+              </div>
             </div>
-            <div class="link-row">
-              {featuredProject.data.github && <a class="text-link" href={featuredProject.data.github}>GitHub repository</a>}
-              {latestNote && <a class="text-link" href={`/notes/${latestNote.slug}/`}>Build note</a>}
-            </div>
+            <aside class="project-visual" aria-label="Deskling app preview">
+              <div class="mini-window">
+                <div class="mini-bar">
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="mini-deskling" aria-hidden="true">
+                  <div class="mini-antenna"></div>
+                  <div class="mini-head">
+                    <span class="mini-eye"></span>
+                    <span class="mini-eye"></span>
+                    <span class="mini-mouth"></span>
+                  </div>
+                  <div class="mini-body">
+                    <span class="mini-heart"></span>
+                  </div>
+                  <div class="mini-shadow"></div>
+                </div>
+                <div class="mini-copy">
+                  <strong>I am awake.</strong>
+                  <span>celebrates when you ship</span>
+                </div>
+                <div class="mini-states">
+                  <span>active</span>
+                  <span>idle</span>
+                  <span>ship</span>
+                </div>
+              </div>
+            </aside>
           </div>
         </article>
       )
