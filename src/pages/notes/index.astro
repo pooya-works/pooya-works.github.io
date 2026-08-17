@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const notes = (await getCollection("notes")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Notes" description="Build notes from Pooya Works projects.">
+  <section class="page-intro">
+    <p class="kicker">Build notes</p>
+    <h1>What I made, what broke, and what I learned.</h1>
+  </section>
+
+  <section class="list-stack" aria-label="Notes">
+    {notes.map((note) => (
+      <article class="note-row">
+        <p class="status">{note.data.day}</p>
+        <h2><a href={`/notes/${note.slug}/`}>{note.data.title}</a></h2>
+        <p>{note.data.description}</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

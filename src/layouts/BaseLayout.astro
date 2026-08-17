@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Pooya Works",
+  description = "Small tools, experiments, and useful software made with curiosity.",
+} = Astro.props;
+
+const pageTitle = title === "Pooya Works" ? title : `${title} | Pooya Works`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Primary navigation">
+        <a class="brand-lockup" href="/" aria-label="Pooya Works home">
+          <span class="jade-mark" aria-hidden="true"></span>
+          <span>POOYA WORKS</span>
+        </a>
+        <nav>
+          <a href="/projects/">Projects</a>
+          <a href="/notes/">Notes</a>
+          <a href="/about/">About</a>
+          <a href="https://github.com/pooya-works" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
