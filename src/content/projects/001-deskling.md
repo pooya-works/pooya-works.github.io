@@ -5,7 +5,6 @@ description: "A tiny desktop companion for makers that wakes, rests, and celebra
 status: "Prototype"
 version: "v0.1"
 versionDate: "26.08.17"
-nextVersion: "v0.2 (~)"
 category: "Desktop Experiment"
 platform: "Mac / Windows"
 openSource: true

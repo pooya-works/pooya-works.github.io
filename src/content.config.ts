@@ -9,7 +9,6 @@ const projects = defineCollection({
     status: z.string(),
     version: z.string().optional(),
     versionDate: z.string().optional(),
-    nextVersion: z.string().optional(),
     category: z.string(),
     platform: z.string().optional(),
     openSource: z.boolean().default(true),
