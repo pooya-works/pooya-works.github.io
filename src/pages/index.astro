@@ -36,6 +36,10 @@ const latestNote = notes.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
               {featuredProject.data.platform && <span>{featuredProject.data.platform}</span>}
               {featuredProject.data.openSource && <span>Open Source</span>}
             </div>
+            <div class="link-row">
+              {featuredProject.data.github && <a class="text-link" href={featuredProject.data.github}>GitHub repository</a>}
+              {latestNote && <a class="text-link" href={`/notes/${latestNote.slug}/`}>Build note</a>}
+            </div>
           </div>
         </article>
       )
