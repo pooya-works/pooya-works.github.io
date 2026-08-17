@@ -32,6 +32,13 @@ const latestNote = notes.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
             <h3>{featuredProject.data.title}</h3>
             <p>{featuredProject.data.description}</p>
             <div class="meta-line">
+              {featuredProject.data.version && (
+                <span>
+                  {featuredProject.data.version}
+                  {featuredProject.data.versionDate && ` (${featuredProject.data.versionDate})`}
+                </span>
+              )}
+              {featuredProject.data.nextVersion && <span>{featuredProject.data.nextVersion}</span>}
               <span>{featuredProject.data.category}</span>
               {featuredProject.data.platform && <span>{featuredProject.data.platform}</span>}
               {featuredProject.data.openSource && <span>Open Source</span>}

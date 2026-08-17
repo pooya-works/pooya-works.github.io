@@ -20,6 +20,13 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.number.
           <h2>{project.data.title}</h2>
           <p>{project.data.description}</p>
           <div class="meta-line">
+            {project.data.version && (
+              <span>
+                {project.data.version}
+                {project.data.versionDate && ` (${project.data.versionDate})`}
+              </span>
+            )}
+            {project.data.nextVersion && <span>{project.data.nextVersion}</span>}
             <span>{project.data.category}</span>
             {project.data.platform && <span>{project.data.platform}</span>}
             {project.data.openSource && <span>Open Source</span>}
